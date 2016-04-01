@@ -8,9 +8,19 @@
 library(HIEv)
 library(RODBC)
 library(lubridate)
+setToken(tokenfile="HIEv_token.txt")
 
-setwd("c:/repos/WTCautoscript")
-source("getWTCtrendlog.R")
+#setwd("c:/repos/WTCautoscript")
+source("R/getWTCtrendlog.R")
+
+#-----
+#- initialize the trendlog .RData files, if needed.
+# d <- getWTCtrendlog(Date="2015-11-1",timestep=15)
+# TrendlogChDF <- d[[1]]
+# TrendlogRefDF <- d[[2]]
+# save(TrendlogChDF,file="data/TrendlogChDF.RData")
+# save(TrendlogRefDF,file="data/TrendlogRefDF.RData")
+#-----
 
 
 load("data/TrendlogChDF.RData")
