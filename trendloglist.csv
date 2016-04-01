@@ -1,0 +1,80 @@
+devtype,unit,trendlog,label,TL2,chamber,varname
+1,1,xxx,xxxx,xxxx,xx,xxxx
+43,8011,182,C1 - Dewpoint in chamber,Trendlog 183,ch01,DP_al
+1,8011,085,C1 - Humidity inside Chamber,Trendlog 86,ch01,RH_al
+8,8011,095,C1 - Humidity inside Chamber SP,Trendlog 96,ch01,RH_SP
+10,8011,045,C1 - Temp Inside Chamber Average Ref:5,Trendlog 46,ch01,Tair_al
+7,8011,056,C1 - Temp Inside Chamber SP,Trendlog 57,ch01,Tair_SP
+28,8011,135,C1 - subfloorT,Trendlog 136,ch01,Tsub_al
+43,8021,183,C2 - Dewpoint in chamber,Trendlog 184,ch02,DP_al
+1,8021,086,C2 - Humidity inside Chamber,Trendlog 87,ch02,RH_al
+8,8021,096,C2 - Humidity inside Chamber SP,Trendlog 97,ch02,RH_SP
+10,8021,046,C2 - Temp Inside Chamber Average Ref:5,Trendlog 47,ch02,Tair_al
+7,8021,057,C2 - Temp Inside Chamber SP,Trendlog 58,ch02,Tair_SP
+28,8021,136,C2 - subfloorT,Trendlog 137,ch02,Tsub_al
+43,8031,184,C3 - Dewpoint in chamber,Trendlog 185,ch03,DP_al
+1,8031,087,C3 - Humidity inside Chamber,Trendlog 88,ch03,RH_al
+8,8031,097,C3 - Humidity inside Chamber SP,Trendlog 98,ch03,RH_SP
+10,8031,047,C3 - Temp Inside Chamber Average Ref:5,Trendlog 48,ch03,Tair_al
+7,8031,058,C3 - Temp Inside Chamber SP,Trendlog 59,ch03,Tair_SP
+28,8031,137,C3 - subfloorT,Trendlog 138,ch03,Tsub_al
+43,8041,185,C4 - Dewpoint in chamber,Trendlog 186,ch04,DP_al
+1,8041,088,C4 - Humidity inside Chamber,Trendlog 89,ch04,RH_al
+8,8041,098,C4 - Humidity inside Chamber SP,Trendlog 99,ch04,RH_SP
+10,8041,048,C4 - Temp Inside Chamber Average Ref:5,Trendlog 49,ch04,Tair_al
+7,8041,059,C4 - Temp Inside Chamber SP,Trendlog 60,ch04,Tair_SP
+28,8041,138,C4 - subfloorT,Trendlog 139,ch04,Tsub_al
+43,8051,186,C5 - Dewpoint in chamber,Trendlog 187,ch05,DP_al
+1,8051,089,C5 - Humidity inside Chamber,Trendlog 90,ch05,RH_al
+8,8051,099,C5 - Humidity inside Chamber SP,Trendlog 100,ch05,RH_SP
+10,8051,049,C5 - Temp Inside Chamber Average Ref:5,Trendlog 50,ch05,Tair_al
+7,8051,241,C5 - Temp Inside Chamber SP,Trendlog 242,ch05,Tair_SP
+28,8051,139,C5 - subfloorT,Trendlog 140,ch05,Tsub_al
+43,8061,187,C6 - Dewpoint in chamber,Trendlog 188,ch06,DP_al
+1,8061,090,C6 - Humidity inside Chamber,Trendlog 91,ch06,RH_al
+8,8061,100,C6 - Humidity inside Chamber SP,Trendlog 101,ch06,RH_SP
+10,8061,050,C6 - Temp Inside Chamber Average Ref:5,Trendlog 51,ch06,Tair_al
+7,8061,060,C6 - Temp Inside Chamber SP,Trendlog 61,ch06,Tair_SP
+28,8061,140,C6 - subfloorT,Trendlog 141,ch06,Tsub_al
+43,8071,018,C7 - Dew Point Chamber,Trendlog 19,ch07,DP_al
+1,8071,005,C7 - Humidity Inside Chamber,Trendlog 6,ch07,RH_al
+8,8071,040,C7 - Humidity inside Chamber SP,Trendlog 41,ch07,RH_SP
+10,8071,051,C7 - Temp Inside Chamber Average Ref:5,Trendlog 52,ch07,Tair_al
+7,8071,004,C7 - Temp Inside Chamber SP,Trendlog 5,ch07,Tair_SP
+28,8071,028,C7 - subfloorT,Trendlog 29,ch07,Tsub_al
+43,8081,188,C8 - Dewpoint in chamber,Trendlog 189,ch08,DP_al
+1,8081,091,C8 - Humidity inside Chamber,Trendlog 92,ch08,RH_al
+8,8081,242,C8 - Humidity inside Chamber SP,Trendlog 243,ch08,RH_SP
+10,8081,052,C8 - Temp Inside Chamber Average Ref:5,Trendlog 53,ch08,Tair_al
+7,8081,003,C8 - Temp Inside Chamber SP,Trendlog 12,ch08,Tair_SP
+28,8081,141,C8 - subfloorT,Trendlog 142,ch08,Tsub_al
+43,8091,189,C9 - Dewpoint in chamber,Trendlog 190,ch09,DP_al
+1,8091,092,C9 - Humidity inside Chamber,Trendlog 93,ch09,RH_al
+8,8091,102,C9 - Humidity inside Chamber SP,Trendlog 103,ch09,RH_SP
+10,8091,053,C9 - Temp Inside Chamber Average Ref:5,Trendlog 54,ch09,Tair_al
+7,8091,203,C9 - Temp Inside Chamber SP,Trendlog 204,ch09,Tair_SP
+28,8091,142,C9 - subfloorT,Trendlog 143,ch09,Tsub_al
+43,8101,190,C10 - Dewpoint in chamber,Trendlog 191,ch10,DP_al
+1,8101,093,C10 - Humidity inside Chamber,Trendlog 94,ch10,RH_al
+8,8101,103,C10 - Humidity inside Chamber SP,Trendlog 104,ch10,RH_SP
+10,8101,054,C10 - Temp Inside Chamber Average Ref:5,Trendlog 55,ch10,Tair_al
+7,8101,201,C10 - Temp Inside Chamber SP,Trendlog 202,ch10,Tair_SP
+28,8101,143,C10 - subfloorT,Trendlog 144,ch10,Tsub_al
+43,8111,171,C11 - Dew Point in Chamber,Trendlog 172,ch11,DP_al
+1,8111,043,C11 - Humidity Inside Chamber,Trendlog 44,ch11,RH_al
+8,8111,104,C11 - Humidity inside Chamber SP,Trendlog 105,ch11,RH_SP
+10,8111,042,C11 - Temp Inside Chamber Average Ref:5,Trendlog 43,ch11,Tair_al
+7,8111,044,C11 - Temp Inside Chamber SP,Trendlog 45,ch11,Tair_SP
+28,8111,144,C11 - subfloorT,Trendlog 145,ch11,Tsub_al
+43,8121,169,C12 - Dew Point in Chamber,Trendlog 170,ch12,DP_al
+1,8121,094,C12 - Humidity inside Chamber,Trendlog 95,ch12,RH_al
+8,8121,105,C12 - Humidity inside Chamber SP,Trendlog 106,ch12,RH_SP
+10,8121,055,C12 - Temp Inside Chamber Average Ref:5,Trendlog 56,ch12,Tair_al
+7,8121,123,C12 - Temp Inside Chamber SP,Trendlog 124,ch12,Tair_SP
+28,8121,145,C12 - subfloorT,Trendlog 146,ch12,Tsub_al
+16,8001,134,Dew Point Ambient,Trendlog 135,ref,DPref_al
+4,8001,001,Outside Air Humidity,Trendlog 2,ref,RHref_al
+4,8001,000,Outside Air Temperature Average,Trendlog 1,ref,Taref_al
+24,8001,002,Chilled Water SP Temp,Trendlog 3,ref,Tchilled_SP
+24,8001,007,Chilled Water Temp,Trendlog 8,ref,Tchilled
+1,1,xxx,xxxx,xxxx,xx,xxxx
