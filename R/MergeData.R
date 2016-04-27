@@ -3,17 +3,18 @@
 library(HIEv)
 library(lubridate)
 library(dplyr)
-setwd("c:/repos/WTCautoscript")
+setToken(tokenfile="HIEv_token.txt")
+#setwd("c:/repos/WTCautoscript")
 load("data/TrendlogChDF.RData")
 load("data/TrendlogRefDF.RData")
 
 startdate<- as.Date("2016-02-28")
-enddate<- as.Date("2016-03-08")
+enddate<- as.Date("2016-04-26")
 
-setwd("C:/Temphiev")
+#setwd("C:/Temphiev")
 ch<-c("C01","C02","C03","C04","C05","C06","C07","C08","C09","C10","C11","C12")
-WTCCentralRef<-downloadTOA5(filename="WTC_AUTO_ALL_REF15MIN_R",startDate=startdate,endDate=enddate)
-WTCCentralCh<-downloadTOA5(filename="WTC_AUTO_ALL_CH15MIN_R",startDate=startdate,endDate=enddate)
+WTCCentralRef<-downloadTOA5(filename="WTC_AUTO_ALL_REF15MIN_R",startDate=startdate,endDate=enddate,topath="/data")
+WTCCentralCh<-downloadTOA5(filename="WTC_AUTO_ALL_CH15MIN_R",startDate=startdate,endDate=enddate,topath="/data")
 WTCCentralRef$linktime<-nearestTimeStep(WTCCentralRef$DateTime,5,"floor")
 WTCCentralCh$linktime<-nearestTimeStep((WTCCentralCh$DateTime+120),5,"floor")
 WTCCentralCh$chamber<-ch[WTCCentralCh$chamber]
@@ -29,7 +30,7 @@ mergdat<-mergdat[ , !(names(mergdat) %in% drops)]
 with(mergdat,table(as.Date(DateTime),chamber))
 
 #get kfactors
-kfactors<-read.csv("c:/repos/WTCautoscript/data/kfactors.txt",as.is=T)
+kfactors<-read.csv("data/kfactors.txt",as.is=T)
 kfactors$SD<-as.Date(kfactors$DateTime)
 kfactors$ED<-as.Date(kfactors$DateTime)
 kfact<-split(kfactors,kfactors$chamber)
@@ -72,7 +73,7 @@ teten<-function(Ta){
 #split data into chambers and sort by assending datetime
 mergdat <- mergdat[order(mergdat$chamber, mergdat$DateTime),]
 mergdat$HWTC<-mergdat$RH_al/100*teten(mergdat$Tair_al)*1000 #water content Pa
-lmergdat<-split(mergdat,chamber)
+lmergdat<-split(mergdat,chamber)#doesn't run
 
 mergdat$prevDateTime <- as.POSIXct(c(NA,mergdat[1:nrow(mergdat)-1, "DateTime"]),origin="1970-01-01 00:00:00",tz="UTC")
 mergdat$prevHWTC <- c(NA,mergdat[1:nrow(mergdat)-1, "HWTC"])
@@ -118,6 +119,19 @@ mergdat$deltaH2O<-(function(x)(ifelse (x$tcycle>0,((x$HWTC-x$prevHWTC)/(mergdat$
 mergdat$CONDH2O<-(function(x)(ifelse (x$tcycle>0,(x$CONDH2O/x$tcycle/18),NA)))(mergdat) #condensed water mol s-1
 mergdat$FluxH2O<-(function(x)(ifelse (x$tcycle>0,(x$CONDH2O+x$Vwat-x$Fwat+x$deltaH2O),NA)))(mergdat) #flux of water mol s-1
 
-mergdat$FluxCO2<-mergdat$F-mergdat$v+mergdat$ICO2-mergdat$deltaS
+mergdat$FluxCO2 <- mergdat$F-mergdat$v+mergdat$ICO2-mergdat$deltaS
 
 
+lastweek <- subset(mergdat,as.Date(DateTime)>as.Date("2016-04-25"))
+
+#- plot the 5 flux components over time
+windows(50,40);par(mfrow=c(3,2),mar=c(5,6,1,1),cex.lab=2)
+ylims=c(-0.2,0.2)
+plot(CO2CChamb~DateTime,data=lastweek,ylim=c(390,550),ylab="[CO2]")   ;abline(h=0)
+points(prevCWTC~DateTime,data=lastweek,col="blue")
+legend("topright",pch=c(16,16),legend=c("CO2","prevCO2"),col=c("black","blue"))
+plot(FluxCO2~DateTime,data=lastweek,ylim=ylims,ylab="Flux")   ;abline(h=0)
+plot(deltaS~DateTime,data=lastweek,ylim=ylims,ylab="Storage") ;abline(h=0)
+plot(F~DateTime,data=lastweek,ylim=ylims,ylab="Fresh in")     ;abline(h=0)
+plot(v~DateTime,data=lastweek,ylim=ylims,ylab="Fresh out")    ;abline(h=0)
+plot(ICO2~DateTime,data=lastweek,ylim=ylims,ylab="Inj")       ;abline(h=0)

@@ -3,6 +3,8 @@
 .RData
 .Ruserdata
 
+HIEv_token.txt
+
 /data
 /reports
 /wtctrendlogs
