@@ -67,7 +67,8 @@ for (i in 1:nrow(mergdat)){
 #saturation vapor pressure (kPa) at Ta (C)
 teten<-function(Ta){  
   teten <- 0.611 * exp(17.502 * Ta / (Ta + 240.97))
-  return(teten)}
+  return(teten)
+}
 
 #calculate fluxes
 #split data into chambers and sort by assending datetime
@@ -122,9 +123,9 @@ mergdat$FluxH2O<-(function(x)(ifelse (x$tcycle>0,(x$CONDH2O+x$Vwat-x$Fwat+x$delt
 mergdat$FluxCO2 <- mergdat$F-mergdat$v+mergdat$ICO2-mergdat$deltaS
 
 
-lastweek <- subset(mergdat,as.Date(DateTime)>as.Date("2016-04-25"))
+lastweek <- subset(mergdat,as.Date(DateTime)>as.Date("2016-04-2"))
 
-#- plot the 5 flux components over time
+#- plot the CO2 flux components over time
 windows(50,40);par(mfrow=c(3,2),mar=c(5,6,1,1),cex.lab=2)
 ylims=c(-0.2,0.2)
 plot(CO2CChamb~DateTime,data=lastweek,ylim=c(390,550),ylab="[CO2]")   ;abline(h=0)
@@ -135,3 +136,19 @@ plot(deltaS~DateTime,data=lastweek,ylim=ylims,ylab="Storage") ;abline(h=0)
 plot(F~DateTime,data=lastweek,ylim=ylims,ylab="Fresh in")     ;abline(h=0)
 plot(v~DateTime,data=lastweek,ylim=ylims,ylab="Fresh out")    ;abline(h=0)
 plot(ICO2~DateTime,data=lastweek,ylim=ylims,ylab="Inj")       ;abline(h=0)
+
+
+
+
+
+#- plot the H2O flux components over time
+windows(50,40);par(mfrow=c(3,2),mar=c(5,6,1,1),cex.lab=2)
+ylims=c(-0.02,0.06)
+plot(HWTC~DateTime,data=lastweek,ylim=c(0,3000),ylab="[H2O]")   ;abline(h=0)
+points(prevHWTC~DateTime,data=lastweek,col="blue")
+legend("topright",pch=c(16,16),legend=c("H2O","prevH2O"),col=c("black","blue"))
+plot(FluxH2O~DateTime,data=lastweek,ylim=ylims,ylab="Flux")   ;abline(h=0)
+plot(deltaH2O~DateTime,data=lastweek,ylim=ylims,ylab="Storage") ;abline(h=0)
+plot(Fwat~DateTime,data=lastweek,ylim=ylims,ylab="Fresh in")     ;abline(h=0)
+plot(Vwat~DateTime,data=lastweek,ylim=ylims,ylab="Fresh out")    ;abline(h=0)
+plot(CONDH2O~DateTime,data=lastweek,ylim=ylims,ylab="Condensed H2O")       ;abline(h=0)
