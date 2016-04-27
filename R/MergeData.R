@@ -73,11 +73,11 @@ teten<-function(Ta){
 #split data into chambers and sort by assending datetime
 mergdat <- mergdat[order(mergdat$chamber, mergdat$DateTime),]
 mergdat$HWTC<-mergdat$RH_al/100*teten(mergdat$Tair_al)*1000 #water content Pa
-lmergdat<-split(mergdat,chamber)#doesn't run
+lmergdat<-split(mergdat,chamber)#doesn't run, and this doesn't seem to matter. JED.
 
 mergdat$prevDateTime <- as.POSIXct(c(NA,mergdat[1:nrow(mergdat)-1, "DateTime"]),origin="1970-01-01 00:00:00",tz="UTC")
 mergdat$prevHWTC <- c(NA,mergdat[1:nrow(mergdat)-1, "HWTC"])
-mergdat$prevCWTC <- c(NA,mergdat[1:nrow(mergdat)-1, "CO2C"]) #CHECK CO2C is correct variable
+mergdat$prevCWTC <- c(NA,mergdat[1:nrow(mergdat)-1, "CO2CChamb"]) #CHECK CO2C is correct variable (No, changed to "CO2CChamb"- JED.)
 mergdat$tcycle <- (as.numeric(mergdat$DateTime) - as.numeric(mergdat$prevDateTime)) #normally 900 seconds
 mergdat$fCO2<-mergdat$CO2FLOW/60 #scc/sec
 mergdat$Href<-mergdat$RHref_al / 100 * teten(mergdat$Taref_al) * 1000 #Pa
